@@ -22,8 +22,7 @@ Southwest Burger : [Burger] : [N] : [6.5] : [Beef, Pepper jack cheese, Avocado, 
 Pesto Turkey Burger : [Burger] : [N] : [6.5] : [Turkey, Mozzarella cheese, Pesto sauce, Sun-dried tomatoes, Lettuce, Tomato, Red onion, Garlic aioli]
 French Onion Burger : [Burger] : [N] : [6.5] : [Beef, Gruyere cheese, Caramelized onions, Lettuce, Tomato, Dijon mustard, Garlic aioli]
 Korean BBQ Burger : [Burger] : [N] : [7.5] : [Beef, Kimchi, Gochujang sauce, Sesame seeds, Lettuce, Tomato, Red onion, Sriracha mayo]
-Smoky Chipotle Black Bean Burger : [V] : [Burger] : [5.5] : [Black bean patty, Pepper jack cheese, Chipotle peppers, Lettuce, Tomato, Red onion, Avocado, Chipotle mayo]
-
+Smoky Chipotle Black Bean Burger : [Burger] : [V] : [5.5] : [Black bean patty, Pepper jack cheese, Chipotle peppers, Lettuce, Tomato, Red onion, Avocado, Chipotle mayo]
 Margherita Pizza : [Pizza] : [V] : [10.0] : [Mozzarella cheese, Tomato sauce, Fresh basil leaves]
 Pepperoni Pizza : [Pizza] : [N] : [12.0] : [Mozzarella cheese, Pepperoni slices, Tomato sauce]
 Hawaiian Pizza : [Pizza] : [N] : [12.5] : [Mozzarella cheese, Ham slices, Pineapple chunks, Tomato sauce]
@@ -49,7 +48,6 @@ Mediterranean Veggie Pizza : [Pizza] : [V] : [14.5] : [Mozzarella cheese, Artich
 Taco Pizza : [Pizza] : [N] : [15.0] : [Mozzarella cheese, Ground beef, Taco seasoning, Tomato sauce, Lettuce, Tomato, Cheddar cheese, Sour cream]
 Bacon Egg Breakfast Pizza : [Pizza] : [N] : [13.5] : [Mozzarella cheese, Bacon, Eggs, Cheddar cheese, Tomato sauce]
 Buffalo Cauliflower Pizza : [Pizza] : [N] : [14.5] : [Mozzarella cheese, Buffalo cauliflower, Red onion slices, Ranch dressing, Tomato sauce]
-
 Pad Thai : [Wok] : [N] : [10.5] : [Rice noodles, Tofu, Shrimp, Bean sprouts, Scallops, Eggs, Peanuts, Pad Thai sauce]
 Chow Mein : [Wok] : [N] : [11.0] : [Egg noodles, Chicken, Shrimp, Carrots, Celery, Cabbage, Soy sauce]
 Singapore Noodles : [Wok] : [N] : [11.5] : [Rice noodles, Shrimp, Chicken, Curry powder, Bean sprouts, Scallops, Bell peppers]
@@ -75,7 +73,6 @@ Chicken Cashew Noodles : [Wok] : [N] : [11.5] : [Rice noodles, Chicken, Cashews,
 Garlic Ginger Beef Noodles : [Wok] : [N] : [12.0] : [Udon noodles, Beef, Garlic, Ginger, Soy sauce, Green onions]
 Vietnamese Rice Noodles with Lemongrass Chicken : [Wok] : [N] : [12.5] : [Rice noodles, Lemongrass, Chicken, Cucumber, Carrots, Lettuce, Fish sauce]
 Peanut Sesame Noodles : [Wok] : [V] : [10.5] : [Soba noodles, Peanut butter, Sesame oil, Soy sauce, Green onions]
-
 California Roll : [Roll] : [N] : [8.5] : [Imitation crab meat, Cucumber, Avocado]
 Spicy Tuna Roll : [Roll] : [N] : [9.0] : [Tuna, Spicy mayo]
 Dragon Roll : [Roll] : [N] : [12.0] : [Eel, Avocado, Cucumber, Eel sauce]
@@ -87,7 +84,7 @@ Volcano Roll : [Roll] : [N] : [11.0] : [Crab, Shrimp, Scallops, Spicy mayo, Eel 
 Caterpillar Roll : [Roll] : [N] : [11.5] : [Avocado, Eel, Eel sauce]
 Crunchy Roll : [Roll] : [V] : [9.5] : [Tempura flakes, Spicy mayo, Cucumber]
 Alaska Roll : [Roll] : [N] : [10.5] : [Smoked salmon, Avocado, Cucumber]
-Eel Avocado Roll : [Roll] : [N] : [11.0] : [Eel, Avocado, Eel sauce]
+Crunchy Spicy Salmon Roll : [Roll] : [N] : [10.5] : [Salmon, Spicy mayo, Tempura flakes]
 Salmon Avocado Roll : [Roll] : [N] : [10.0] : [Salmon, Avocado]
 Yellowtail Roll : [Roll] : [N] : [10.5] : [Yellowtail fish, Scallops]
 Tuna Avocado Roll : [Roll] : [N] : [11.0] : [Tuna, Avocado]

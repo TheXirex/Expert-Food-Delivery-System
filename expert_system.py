@@ -72,28 +72,33 @@ def input_lst_ingridients(dishes):
         for ingridient in dish.components:
             set_ingridients.add(ingridient)
 
-    flag = True
-
     while True:
-        removed_ingridients = input('Enter your ingridients separated by "/": ')
-        if '/' not in removed_ingridients:
-            removed_ingridients = removed_ingridients.split()
-        else:
-            removed_ingridients = removed_ingridients.split('/')
-
-        for i in removed_ingridients:
-            if i not in set_ingridients:
-                print('One or some of the ingredients on your list are misspelled. Try again.')
+        flag = True
+        input_ingridients = input('Enter your ingridients separated by "/": ')
+        if '/' not in input_ingridients:
+            if input_ingridients not in set_ingridients:
+                print('Your ingredients are misspelled. Try again.')
                 flag = False
+            else:
+                lst_ingridients = []
+                lst_ingridients.append(input_ingridients)
+        else:
+            lst_ingridients = input_ingridients.split('/')
+            for i in input_ingridients:
+                if i not in set_ingridients:
+                    print('One or some of the ingredients on your list are misspelled. Try again.')
+                    flag = False
+                    break
         
         if not flag: continue
 
         set_dishes = set()
-        for i in removed_ingridients:
+        
+        for i in lst_ingridients:
             for j in dishes:
                 if i in j.components:
                     set_dishes.add(j)
-        return set_dishes, removed_ingridients
+        return set_dishes, lst_ingridients
 
 # done
 def vegeterian():
@@ -116,9 +121,11 @@ def search(dishes):
         for ingridient in dish.components:
             set_ingridients.add(ingridient)
     lst_ingridients = sorted(list(set_ingridients))
+
     print_ingridients(lst_ingridients)
+
     new_dishes, lst = input_lst_ingridients(dishes)
-    
+
     dish = algorithm(new_dishes, lst)
     return dish
 

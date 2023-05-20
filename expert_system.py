@@ -1,7 +1,6 @@
 from tabulate import tabulate as tb
 
-check = []
-
+# not done
 class Dish:
     def __init__(self, name, dtype, vn, price, components):
         self.name = name
@@ -10,8 +9,9 @@ class Dish:
         self.price = price
         self.components = components
     def __str__(self) -> str:
-        return f'Name: {self.name}\nType of dish: {self.dtype}\nV/N: {self.vn}\nPrice: {self.price}\nComponents: {self.components}\n'
+        return f'Name: {self.name}\n {self.vn}\nPrice: {self.price}\nComponents: {self.components}'
 
+# done
 def input_database(file_name):
     dishes = []
     with open(file_name) as text:
@@ -28,17 +28,20 @@ def input_database(file_name):
             dishes.append(obj)
     return dishes
 
+# done
 def select_types(dishes):
     return list(set([i.dtype for i in dishes]))
-        
+
+# done    
 def choose_dish_type(types):
+
     table = [[i + 1, types[i]] for i in range(len(types))]
-    headers = ['Type']
-    print(tb(table, headers, tablefmt = 'simple_grid'))
+    print(tb(table, ['Type'], tablefmt = 'simple_grid'))
+    
     print('What type of dish do you want?')
     while True:
         try:
-            number = int(input('Enter the number of type: ')) - 1
+            number = int(input('Enter the number of dish type: ')) - 1
         except:
             print('The answer must be an integer number! Try again.')
         else:    
@@ -47,6 +50,7 @@ def choose_dish_type(types):
             else:
                 print('Choose a number from the above.')
 
+# done
 def print_ingridients(lst_ingridients):
     table = []
     row = []
@@ -61,26 +65,50 @@ def print_ingridients(lst_ingridients):
             break
     print(tb(table, tablefmt = 'simple_grid'))
 
-
+# done
 def input_lst_ingridients(dishes):
-    lst = input('Enter your ingridients separated by "/": ').split('/')
-    set_dishes = set()
-    for i in lst:
-        for j in dishes:
-            if i in j.components:
-                set_dishes.add(j)
-    return set_dishes, lst
+    set_ingridients = set()
+    for dish in dishes:
+        for ingridient in dish.components:
+            set_ingridients.add(ingridient)
 
-def vn():
-    ans = int(input('You ar vegan? 1 (meat) or 2 (vegan)'))
-    if ans == 1:
-        return False
-    else:
-        return True
+    flag = True
+
+    while True:
+        removed_ingridients = input('Enter your ingridients separated by "/": ')
+        if '/' not in removed_ingridients:
+            removed_ingridients = removed_ingridients.split()
+        else:
+            removed_ingridients = removed_ingridients.split('/')
+
+        for i in removed_ingridients:
+            if i not in set_ingridients:
+                print('One or some of the ingredients on your list are misspelled. Try again.')
+                flag = False
+        
+        if not flag: continue
+
+        set_dishes = set()
+        for i in removed_ingridients:
+            for j in dishes:
+                if i in j.components:
+                    set_dishes.add(j)
+        return set_dishes, removed_ingridients
+
+# done
+def vegeterian():
+    while True:
+        try:
+            ans = int(input('Are you a vegetarian? (<1> to confirm or <2> to reject): '))
+        except:
+            print('Incorrect value. Enter <1> to confirm or <2> to reject.')
+        else:
+            if ans == 1: return True
+            else: return False
     
 
 def search(dishes):
-    if vn(): dishes = [i for i in dishes if i.vn == 'V']
+    if vegeterian(): dishes = [i for i in dishes if i.vn == 'V']
     else: dishes = [i for i in dishes if i.vn == 'N']
         
     set_ingridients = set()
@@ -91,68 +119,88 @@ def search(dishes):
     print_ingridients(lst_ingridients)
     new_dishes, lst = input_lst_ingridients(dishes)
     
-    algorithm(new_dishes, lst)
+    dish = algorithm(new_dishes, lst)
+    return dish
 
 def algorithm(new_dishes, lst):
-    r_sidhes = list(new_dishes)
+
+    dish_lst = list(new_dishes)
+
     while True:
+
         set_ingridients = set()
-        for dish in r_sidhes:
+        for dish in dish_lst:
             for ingridient in dish.components:
                 if ingridient not in lst:
                     set_ingridients.add(ingridient)
-        lst_ingridients = sorted(list(set_ingridients))
+
+        lst_ingridients = list(set_ingridients)
+
         while True:
             try:
-                answer = int(input('Does your dish contain ' + lst_ingridients[0] + '?\n'))
-                
-                break
+                ans = int(input(f'Do you want to see {lst_ingridients[0]} in a dish? (<1> to confirm or <2> to reject): '))
             except:
-                print('Enter the number: 1 or 2.')
-        
+                print('Incorrect value. Enter <1> to confirm or <2> to reject.')
+            else:
+                if ans == 1 or ans == 2:
+                    break
+                else:
+                    print('Incorrect value. Enter <1> to confirm or <2> to reject.')
+
         removed_lst = []
-        if answer == 1:
-            for i in r_sidhes:
+
+        if ans == 1:
+            for i in dish_lst:
                 if lst_ingridients[0] not in i.components:
-                    removed_lst.append(i)
-                    print(1)
-            for i in removed_lst:
-                r_sidhes.remove(i)
+                    removed_lst.append(i) 
         else:
-            for i in r_sidhes:
+            for i in dish_lst:
                 if lst_ingridients[0] in i.components:
                     removed_lst.append(i)
-                    print(2)
-            for i in removed_lst:
-                r_sidhes.remove(i)
+
+        for i in removed_lst:
+            dish_lst.remove(i)
         
         lst_ingridients.remove(lst_ingridients[0])
 
-        if len(r_sidhes) == 1:
-            print('\nYour dish is ' + r_sidhes[0] + '!\n\nIf you riddle another dish, it means that this dish is not in the database.'
+        if len(dish_lst) == 1:
+            print('\nYour dish is ' + dish_lst[0].name + '!\n\nIf you riddle another dish, it means that this dish is not in the database.'
                 '\nAdd it and make the system better!')
-            break
-        elif len(r_sidhes) < 1 or len(lst_ingridients) < 1:
+            return dish_lst[0]
+        elif len(dish_lst) < 1 or len(lst_ingridients) < 1:
             print('\nSorry, but there is not enough information about your dish in the database.')
-            break
-        
+            for i in removed_lst:
+                print(i)
+            return removed_lst[0]
 
-    
-    
+# not done
+def add_check(check, dish):
+    check.append([dish.name, dish.price])
+    print(tb(check, ['Name', 'Price'], tablefmt = 'simple_grid'))
+    return check
 
-
+# done
+def next_position():
+    while True:
+        try:
+            ans = int(input('Do you want to continue to choose? (<1> to confirm or <2> to reject): '))
+        except:
+            print('Incorrect value. Enter <1> to confirm or <2> to reject.')
+        else:
+            if ans == 1: return True
+            else: return False
 
 def main():
-    dishes = input_database('database.txt')
-    types = select_types(dishes)
-    dish_type = choose_dish_type(types)
-    dish = search([i for i in dishes if i.dtype == dish_type])
+    check = []
+    while True:
+        dishes = input_database('database.txt')
+        types = select_types(dishes)
+        dish_type = choose_dish_type(types)
+        dish = search([i for i in dishes if i.dtype == dish_type])
+        check = add_check(check, dish)
 
+        if not next_position():
+            break
     
-
 if __name__ == '__main__':
     main()
-               
-
-    
-

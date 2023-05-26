@@ -44,7 +44,7 @@ Caprese Pizza : [Pizza] : [V] : [13.0] : [Mozzarella cheese, Tomato, Basil, Bals
 Margherita with Provolone : [Pizza] : [V] : [11.5] : [Provolone cheese, Tomato sauce, Basil]
 Philly Cheesesteak Pizza : [Pizza] : [N] : [16.0] : [Mozzarella cheese, Beef, Bell peppers, Onions, Provolone cheese, Tomato sauce]
 Chicken Bacon Ranch Pizza : [Pizza] : [N] : [15.5] : [Mozzarella cheese, Chicken, Bacon, Ranch dressing, Tomato sauce]
-Mediterranean Veggie Pizza : [Pizza] : [V] : [14.5] : [Mozzarella cheese, Artichoke hearts, Sun-dried tomatoes, Spinach leaves, Red onion, Feta cheese, Tomato sauce]
+Mediterranean Veggie Pizza : [Pizza] : [V] : [14.5] : [Mozzarella cheese, Artichoke, Sun-dried tomatoes, Spinach, Red onion, Feta cheese, Tomato sauce]
 Taco Pizza : [Pizza] : [N] : [15.0] : [Mozzarella cheese, Beef, Taco seasoning, Tomato sauce, Lettuce, Tomato, Cheddar cheese, Sour cream]
 Bacon Egg Breakfast Pizza : [Pizza] : [N] : [13.5] : [Mozzarella cheese, Bacon, Eggs, Cheddar cheese, Tomato sauce]
 Buffalo Cauliflower Pizza : [Pizza] : [N] : [14.5] : [Mozzarella cheese, Cauliflower, Red onion, Ranch dressing, Tomato sauce]

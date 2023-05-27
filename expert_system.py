@@ -46,6 +46,7 @@ def choose_dish_type(types) -> str:
 
 def print_ingridients(lst_ingridients) -> None:
 
+    lst_ingridients.sort()
     table = []
     row = []
 
@@ -73,7 +74,7 @@ def input_lst_ingridients(dishes):
     while True:
 
         flag = True
-        input_ingridients = input('Enter your ingridients separated by "/": ')
+        input_ingridients = input("Enter your ingridients separated by '/' if there's more than one: ")
 
         if input_ingridients == '':
             print('Empty line, please enter the ingredient(s).')
@@ -221,7 +222,7 @@ def choose_dish_in_removed_lst(lst_dish):
         print(f'-------{i+1}-------\n{lst_dish[1][i]}')
         while True:
             try:
-                number = int(input('\nEnter the number of dish type. (<0> to reject): ')) - 1
+                number = int(input('\nEnter the highlighted dish number if you want to add it to the check. (<0> to reject): ')) - 1
             except:
                 print('The answer must be an integer number! Try again.')
             if number == -1:
